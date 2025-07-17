@@ -3,7 +3,7 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'standalone', // ✅ Vercel requires this for Payload
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
@@ -16,5 +16,5 @@ const nextConfig = {
 }
 
 export default withPayload(nextConfig, {
-  devBundleServerPackages: false,
+  devBundleServerPackages: false, // ✅ Required for Vercel compatibility
 })
