@@ -1,4 +1,5 @@
 // app/about/page.tsx
+import Link from 'next/link'
 
 export default function AboutPage() {
   return (
@@ -41,9 +42,9 @@ export default function AboutPage() {
       <section className="max-w-3xl mx-auto mt-16 text-lg text-gray-700 *:text-center">
         <p>
           Let’s create something cinematic —{' '}
-          <a href="/contact" className="underline hover:text-black transition">
+          <Link href="/contact" className="underline hover:text-black transition">
             get in touch
-          </a>
+          </Link>
           .
         </p>
         <p>danielxshi@hotmail.com</p>
