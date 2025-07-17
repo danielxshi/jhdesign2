@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { blur } from '../../components/sidenav/anim' // Import the blur effect
+import { blur } from '../sidenav/anim' // Import the blur effect
 import styles from '../sidenav/style.module.scss'
 
 interface NavigationLinksProps {

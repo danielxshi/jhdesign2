@@ -1,12 +1,12 @@
-"use client";
-import gsap from "gsap";
+'use client'
+import gsap from 'gsap'
 // import { useGSAP } from "@gsap/react";
-import { useEffect, useRef, useState } from "react";
-import styles from "../styles/modules/_landing.module.scss";
-import Image from "next/image";
+import { useEffect, useRef, useState } from 'react'
+import styles from '../styles/modules/_landing.module.scss'
+import Image from 'next/image'
 // import bg from "./lrglogo.png";
-import { CustomEase } from "gsap/CustomEase";
-import localFont from "next/font/local";
+import { CustomEase } from 'gsap/CustomEase'
+import localFont from 'next/font/local'
 // import test from "../fonts/PragatiNarrow-Bold.ttf";
 
 // const pragati = localFont({
@@ -21,84 +21,84 @@ import localFont from "next/font/local";
 // });
 
 export default function Loader() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(true)
 
   function splitTextIntoSpans(selector: any) {
-    let elements = document.querySelectorAll(selector);
+    const elements = document.querySelectorAll(selector)
     elements.forEach((element) => {
-      let text = element.innerText;
-      let splitText = text
-        .split("")
+      const text = element.innerText
+      const splitText = text
+        .split('')
         .map(function (char: string) {
           return `<span className="text-center mx-auto">${
-            char === " " ? "&nbsp;&nbsp;" : char
-          }</span>`;
+            char === ' ' ? '&nbsp;&nbsp;' : char
+          }</span>`
         })
-        .join("");
-      element.innerHTML = splitText;
-    });
+        .join('')
+      element.innerHTML = splitText
+    })
   }
 
   useEffect(() => {
-    splitTextIntoSpans(".header h1");
+    splitTextIntoSpans('.header h1')
 
-    const tl = gsap.timeline({});
-    tl.to(".hero", {
-      clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) ",
+    const tl = gsap.timeline({})
+    tl.to('.hero', {
+      clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) ',
       duration: 0.35,
-      ease: "expoScale(0.5,7, none)",
-    });
+      ease: 'expoScale(0.5,7, none)',
+    })
 
-    tl.to(".hero-img", {
-      clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) ",
+    tl.to('.hero-img', {
+      clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%) ',
       duration: 1,
       y: 0,
       // ease: "expoScale(0.5,7, none)",
       ease: CustomEase.create(
-        "custom",
-        "M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 "
+        'custom',
+        'M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 ',
       ),
-    });
+    })
 
-    tl.to(".header h1 span", {
+    tl.to('.header h1 span', {
       y: 0,
       stagger: 0.05,
       duration: 0.5,
       ease: CustomEase.create(
-        "custom",
-        "M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 "
+        'custom',
+        'M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 ',
       ),
-    });
+    })
 
-    tl.to(".hero-img", {
+    tl.to('.hero-img', {
       scale: 1.2,
-    });
+    })
 
-    tl.to(".overlay", {
-      width: "100%",
+    tl.to('.overlay', {
+      width: '100%',
       duration: 0.7,
       ease: CustomEase.create(
-        "custom",
-        "M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 "
+        'custom',
+        'M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 ',
       ),
-      delay: ".1",
-    });
+      delay: '.1',
+    })
 
-    tl.to(".overlay", {
-      background: "#fff,",
-      opacity: "1",
-      transform: "translate(0%, 0%) scale(1)",
+    tl.to('.overlay', {
+      background: '#fff,',
+      opacity: '1',
+      transform: 'translate(0%, 0%) scale(1)',
       duration: 0.8,
       ease: CustomEase.create(
-        "custom",
-        "M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 "
+        'custom',
+        'M0,0 C0.126,0.382 0.204,0.59 0.362,0.738 0.554,0.918 0.61,0.963 1,1 ',
       ),
 
-      delay: ".1",
+      delay: '.1',
 
       onComplete: () => setShow(false),
-    });
-  }); // <-- scope is f
+    })
+  }) // <-- scope is f
   return (
     <div className="landing-container ">
       {show && (
@@ -126,5 +126,5 @@ export default function Loader() {
         </section>
       )}
     </div>
-  );
+  )
 }

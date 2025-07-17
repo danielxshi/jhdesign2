@@ -1,28 +1,27 @@
-'use client';
+'use client'
 
-import styles from './style.module.scss';
+import styles from './style.module.scss'
 // import Link from 'next/link';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { opacity, background } from './anim';
-import Nav from './nav/nav';
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { opacity, background } from './anim'
+import Nav from './nav/nav'
+import Link from 'next/link'
 
 const Header: React.FC = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false)
 
   return (
     <div className={`z-[99] ${styles.header}`}>
       <div className={styles.bar}>
-        <a href="/">Olivier</a>
+        <Link href="/">Olivier</Link>
         <div
           onClick={() => {
-            setIsActive(!isActive);
+            setIsActive(!isActive)
           }}
           className={styles.el}
         >
-          <div
-            className={`${styles.burger} ${isActive ? styles.burgerActive : ''}`}
-          ></div>
+          <div className={`${styles.burger} ${isActive ? styles.burgerActive : ''}`}></div>
           <div className={styles.label}>
             <motion.p variants={opacity} animate={!isActive ? 'open' : 'closed'}>
               Menu
@@ -66,7 +65,7 @@ const Header: React.FC = () => {
       ></motion.div>
       <>{isActive && <Nav />}</>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
